@@ -1,5 +1,6 @@
 <?php
 
+use app\helpers\MyUrl;
 use app\models\Category;
 use app\widgets\Alert;
 use yii\helpers\Html;
@@ -47,7 +48,7 @@ AppAsset::register($this);
     <header class="s-header">
         <div class="row s-header__content">
             <div class="s-header__logo">
-                <a class="logo" href="<?= Url::to(['/']) ?>">
+                <a class="logo" href="<?= MyUrl::to(['/']) ?>">
                     <img src="<?= Url::to('@web/images/b.png') ?>" alt="Homepage">
                 </a>
             </div>
@@ -55,7 +56,7 @@ AppAsset::register($this);
             <nav class="s-header__nav-wrap">
                 <h2 class="s-header__nav-heading h6">Site Navigation</h2>
                 <ul class="s-header__nav">
-                    <li><a href="<?= Url::to(['/']) ?>" title="">Home</a></li>
+                    <li><a href="<?= MyUrl::to(['/']) ?>" title="">Home</a></li>
                     <li class="has-children">
                         <a href="." title="">Categories</a>
                         <ul class="sub-menu">
@@ -64,14 +65,14 @@ AppAsset::register($this);
                             foreach ($categories as $category) {
                                 ?>
                                 <li>
-                                    <a href="<?= Url::to(['/post?category_id=' . ($category->id ?? 1)]) ?>"><?= $category->name ?? 'Not Found' ?></a>
+                                    <a href="<?= MyUrl::to(['/post?category_id=' . ($category->id ?? 1)]) ?>"><?= $category->name ?? 'Not Found' ?></a>
                                 </li>
 
                             <?php } ?>
                         </ul>
                     </li>
-                    <li><a href="<?= Url::to(['/site/about']) ?>" title="">About</a></li>
-                    <li><a href="<?= Url::to(['/site/contact']) ?>" title="">Contact</a></li>
+                    <li><a href="<?= MyUrl::to(['/site/about']) ?>" title="">About</a></li>
+                    <li><a href="<?= MyUrl::to(['/site/contact']) ?>" title="">Contact</a></li>
                 </ul>
                 <a href="#" title="Close Menu" class="s-header__overlay-close close-mobile-menu"></a>
             </nav>
@@ -79,7 +80,7 @@ AppAsset::register($this);
             <a class="s-header__toggle-menu" href="#" title="Menu"><span>Menu</span></a>
             <div class="s-header__search">
                 <form role="search" name="searchForm" method="get" class="s-header__search-form"
-                      action="<?= Url::to(['/post/']) ?>">
+                      action="<?= MyUrl::to(['/post/']) ?>">
                     <label>
                         <input type="search" class="s-header__search-field" placeholder="Type Your Keywords"
                                name="search"
@@ -108,7 +109,7 @@ AppAsset::register($this);
                 <div class="column large-4 medium-12 tab-6 s-footer__site-links">
                     <h5>Site Links</h5>
                     <ul>
-                        <li><a href="<?= Url::to(['/site/about']) ?>">About Me</a></li>
+                        <li><a href="<?= MyUrl::to(['/site/about']) ?>">About Me</a></li>
                         <!-- Add other site links -->
                     </ul>
                 </div>
@@ -123,7 +124,7 @@ AppAsset::register($this);
                     <h5>Subscribe</h5>
                     <div class="subscribe-form">
                         <form id="mc-form-unique" class="group" novalidate="novalidate"
-                              data-submit-url="<?= Url::to(['post/send-comment']) ?>">
+                              data-submit-url="<?= MyUrl::to(['post/send-comment']) ?>">
                             <input type="email" name="dEmail" class="email" id="mc-email-unique"
                                    placeholder="Type & press enter" required="">
                             <input type="submit" name="subscribe">
